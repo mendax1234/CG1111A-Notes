@@ -9,6 +9,7 @@
 \usepackage{tabularx}
 \usepackage{float} % Needed for [H] placement specifier
 \usepackage{wrapfig} % Needed for wrapping figures
+\usepackage{gensymb} % Needed for printing degree
 
 \graphicspath{ {./images/} }
 \geometry{
@@ -58,7 +59,7 @@ The units of magnetic field are webers. ($Wb$)
 \end{notebox}
 \subsubsection{Magnetic Flux Density}
 In equations, we represent the \textbf{magnetic flux density} as the vector quantity $\symbfit{B}$ and its corresponding lightface italic symbol $\textit{B}$ as the magnitude of the vector $\symbfit{B}$. The units of $\symbfit{B}$ are $webers/{meter}^2$ ($Wb/m^2$) or, equivalently, teslas ($\symbfit{T}$). The flux density vector $\symbfit{B}$ has a direction tangent to flux lines, as illustrated in Figure \ref{fig:magnetic-fields-lines}.
-\subsection{Right-Hand Rule}
+\subsection{Right-Hand Rule (Magnetic Field Direction)}
 The direction of the magnetic field produced by a current can be determined by the right-hand rule. There are two interpretations of this rule.
 \begin{enumerate}
     \item As illustrated in Figure \ref{fig:right-hand-rule-1}, if a wire is grasped with the thumb pointing in the direction of the current, the fingers encircle the wire, pointing in the direction of the magnetic field.
@@ -76,6 +77,11 @@ The direction of the magnetic field produced by a current can be determined by t
         \label{fig:right-hand-rule-2}
     \end{figure}
 \end{enumerate}
+\begin{notebox}
+    \begin{remark}
+        The \textbf{direction of the magnetic field} is the {\color{red} \textbf{same}} as the \textbf{direction of the magnetic flux density}.
+    \end{remark}
+\end{notebox}
 \subsection{Forces on Charges Moving in Magnetic Fields}
 An electrical charge $q$ moving with velocity vector $\symbfit{u}$ through a magnetic field $\symbfit{B}$ experiences a force $\symbfit{f}$ as illustrated in Figure \ref{fig:forces-on-moving-charges-in-magnetic-fields}. The force vector is given by,
 \begin{equation} \label{eq: force-vector}
@@ -97,10 +103,88 @@ in which, $\theta$ is the angle between $\symbfit{u}$ and $\symbfit{B}$, as illu
     Note that
     \begin{enumerate}
         \item Force is exerted on a charge as it moves through a magnetic field.
-        \item In the force vector equation \eqref{eq: force-vector}, the charge $q$ can be negative, which will opposite the direction of the vector.
-        \item In the magnitude of force vector equation \eqref{eq: force-vector-magnitude}, we always treat the charge $q$ to have no signs.
+        \item In the force vector equation \eqref{eq: force-vector}, the charge $q$ can be negative, which will opposite the direction of the force vector.
+        \item In the magnitude of force vector equation \eqref{eq: force-vector-magnitude}, we always treat the charge $q$ to have no signs because magnitude is always a positive value.
     \end{enumerate}
-        
+    \end{remark}
+\end{notebox}
+\subsection{Forces on Current-Carrying Wires}
+Force is exerted on a current-carrying conductor when it is immersed in a magnetic field. And the force is given by,
+\begin{equation}
+    d\symbfit{f} = id\symbfit{I} \times \symbfit{B} ~(?)
+\end{equation}
+in which the direction of $d\symbfit{I}$ and the reference direction for the current are the same. \newline
+For a straight wire of length $l$ and a constant magnetic field, we have
+\begin{equation}
+    f=ilB~sin(\theta)
+\end{equation}
+in which $\theta$ is the angle between the wire and the field.
+\begin{notebox}
+    \begin{remark}
+        Note that the force is maximized if the direction of the field is perpendicular to the wire because now $\theta=90\degree$, so $sin(\theta)=1$, thus $\symbfit{f}$ is maximized.
+    \end{remark}
+\end{notebox}
+\subsection{Flux Linkages and Faraday's Law}
+The magnetic flux passing through a surface area $\symbfit{A}$ is given by the surface integral
+\begin{equation} \label{eq:magnetic-flux-general}
+    \phi = \int_A\symbfit{B}\cdot d\symbfit{A}
+\end{equation}
+in which $d\symbfit{A}$ is an increment of area on the surface. The direction of the vector $d\symbfit{A}$ is perpendicular to the surface. If the magnetic flux density is constant and perpendicular to the surface, equation \eqref{eq:magnetic-flux-general} reduces to
+\begin{equation}
+    \phi = BA
+\end{equation}
+\begin{notebox}
+    \begin{remark}
+        We say $\phi$ is the magnetic flux or flux linking the coil but it is \textbf{not the flux linkages}.
+    \end{remark}
+\end{notebox}
+We say that the flux passing through the surface bounded by a coil \textbf{links} the coil. If the coil has $\symbfit{N}$ turns, then the total {\color{red} \textbf{flux linkages}} are given by,
+\begin{equation}
+    \lambda =N\phi
+\end{equation}
+\begin{notebox}
+    \begin{remark}
+        Note that we say $\lambda$ is the {\color{red} \textbf{flux linkages}}, which will be useful in Faraday's law of magnetic induction.
+    \end{remark}
+\end{notebox}
+According to {\color{red} \textbf{Faraday's law of magnetic induction}}, a {\color{red} \textbf{voltage}}
+\begin{equation}
+    e=\frac{d\lambda}{dt}
+\end{equation}
+is induced in coil whenever its \textbf{flux linkages} are changing. This can occur either because
+\begin{enumerate}
+    \item either the magnetic field is changing with time
+    \item or because the coil is moving relative to a magnetic field.
+\end{enumerate}
+There are \textbf{two} ways to judge the \textbf{polarity of the induced voltage} or the \textbf{direction of the induced current}.
+\subsubsection{Lenz's law}
+\begin{thmbox}{Lenz's Law}{lenz-law}
+    The \textbf{Lenz's law} states that the polarity of the induced voltage is such that the voltage would produce a current (through an external resistance) that \textbf{opposes} the original change in flux linkages.
+\end{thmbox}
+\subsubsection{Right-Hand Rule}
+This rule only applies when the voltage is induced in a conductor moving through a magnetic field.
+\subsection{Voltages Induced in Field-Cutting Conductors}
+For example, considering Figure \ref{fig:voltage-induced-in-field-cutting-conductors}. A uniform magnetic field is directed into the page. The sliding conductor and the stationary rails form a loop having an area of $A=lx$. The flux linkages of the coil are
+\begin{displaymath}
+    \lambda = BA = Blx
+\end{displaymath}
+According to Faraday's law, the voltage induced in the coil is given by
+\begin{displaymath}
+    e=\frac{d\lambda}{dt}=Bl\frac{dx}{dt}
+\end{displaymath}
+However, $u=dx/dt$ is the velocity of the sliding conductor, so we have
+\begin{equation}
+    e=Blu
+\end{equation}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{images/voltage-induced-in-field-cutting-conductors.png}
+    \caption{Voltage Induced in Field-Cutting Conductors}
+    \label{fig:voltage-induced-in-field-cutting-conductors}
+\end{figure}
+\begin{notebox}
+    \begin{remark}
+        The general solution to the induced voltage $\symbfit{e}$ is to use {\color{red} \textbf{Faraday's law of magnetic induction}}.
     \end{remark}
 \end{notebox}
 \end{document}
