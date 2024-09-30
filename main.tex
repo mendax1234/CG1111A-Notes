@@ -187,4 +187,66 @@ However, $u=dx/dt$ is the velocity of the sliding conductor, so we have
         The general solution to the induced voltage $\symbfit{e}$ is to use {\color{red} \textbf{Faraday's law of magnetic induction}}.
     \end{remark}
 \end{notebox}
+\section{Inductance and Mutual Inductance}
+We have seen that when a coil carries current, a magnetic flux is produced that links the coil. If the current changes with time, the flux also changes, inducing a voltage in the coil. This is the physical basis of inductance. \newline
+Consider a coil carrying a current $i$ that sets up a flux $\phi$ linking the coil. The inductance of the coil can be defined as flux linkages divided by current:
+\begin{equation} \label{eq:definition-of-inductance}
+    L=\frac{\lambda}{i}
+\end{equation}
+Assuming that the flux is confined to the core that all of the flux links all of the turns, we care write $\lambda =N\phi$. Then, we have
+\begin{equation}
+    L=\frac{N\phi}{i}
+\end{equation}
+According to Faraday's law, voltage is induced in a coil when its flux linkages change:
+\begin{displaymath}
+    e=\frac{d\lambda}{dt}
+\end{displaymath}
+Rearranging the equation \eqref{eq:definition-of-inductance}, we have $\lambda = Li$. Substituting this for $\lambda$ in the Faraday's law, we get
+\begin{equation}
+    e=\frac{d(Li)}{dt}
+\end{equation}
+For a coil wound on a stationary core, the inductance is constant with time, and the above equation reduces to
+\begin{equation}
+    e=L\frac{di}{dt}
+\end{equation}
+Of course, this is the equation relating voltage and current that we used to analyze circuits containing inductance.
+\subsection{Mutual Inductance}
+\section{Ideal Transformers}
+A transformer consists of several coils wound on a common core that usually consists of laminated iron (to reduce eddy-current loss). We will see that transformers can be used to adjust the values of ac voltages. Transformers can greatly facilitate power distribution by stepping voltage up (2400$V$ can be stepped up to 48$kV$) and down (2400$V$ can be stepped down to $240V$) at various points in the distribution system.
+\subsection{Voltage Ratio}
+A transformer is illustrated in Figure \ref{fig:transformer}. An ac voltage source is connected to the primary coil, which consists of $N_1$ turns of wire. Current flows into the primary side and causes an ac magnetic flux $\phi (t)$ to appear in the core. This flux induces a voltage \textbf{of the same frequency} in the $N_2$-turn secondary coil, which delivers power to the load. However, the voltage will be different according to the number of loops in each coil.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{images/transformer.png}
+    \caption{Transformer}
+    \label{fig:transformer}
+\end{figure}
+From Faraday's Law, the voltage or emf induced in the secondary coil is
+\begin{equation}
+    V_2=N_2\frac{d\phi_B}{dt}
+\end{equation}
+where $N_2$ is the number of turns in the secondary coil, and $d\phi_B/dt$ is the rate at which the magnetic flux changes. \newline
+The input primary voltage, $V_1$, is related to the rate at which the flux changes through it,
+\begin{equation}
+    V_1=N_1\frac{d\phi_B}{dt}
+\end{equation}
+where $N_1$ is the number of turns in the primary coil. This follows because the changing flux produces a back emf, $N_1d\phi_B/dt$ that exactly balances the applied voltage $V_1$ if the resistance of the primary can be ignored (Kirchhoff's rules). We divide these two equations, assuming little or no flux is lost, to find
+\begin{equation} \label{eq:voltage-ratio-transformer}
+    \frac{V_1}{V_2} = \frac{N_1}{N_2}
+\end{equation}
+This \textbf{transformer equation} \eqref{eq:voltage-ratio-transformer} tells how the secondary (output) voltage is related to the primary (input) voltage; $V_1$ and $V_2$ in equation \eqref{eq:voltage-ratio-transformer} can be the \textbf{rms} values for both, or peak values for both.
+\begin{notebox}
+    \begin{remark}
+        DC voltages don't work in a transformer because there would be no changing magnetic flux.
+    \end{remark}
+\end{notebox}
+\subsection{Current Ratio}
+Although ac voltage can be increased (or decreased) with a transformer, we don't get something for nothing. Energy conservation tells us that the  \textbf{power output can be no greater than the power input}. A well-designed transformer can be greater than 99\% efficient, so little energy is lost to heat. The power output thus essentially equals the power input. Since power $P=IV$, we have
+\begin{equation}
+    I_1V_1=I_2=V_2
+\end{equation}
+or
+\begin{equation} \label{eq:current-ratio-transformer}
+    \frac{I_1}{I_2} = \frac{N_2}{N_1}
+\end{equation}
 \end{document}
